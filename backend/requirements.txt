@@ -14,3 +14,4 @@ faiss-cpu
 langchain-community
 sentence-transformers
 gunicorn
+dnspython
