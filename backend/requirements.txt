@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+pymongo
+python-dotenv
+langchain
+langchain-groq
+python-jose
+passlib[bcrypt]
+sentry-sdk
+pywebpush
+cryptography
+pypdf
+faiss-cpu
+langchain-community
+sentence-transformers
+gunicorn
