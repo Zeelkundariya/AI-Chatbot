@@ -4,8 +4,13 @@ from passlib.context import CryptContext
 from fastapi import Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 
-SECRET_KEY = "SUPER_SECRET"
-ALGORITHM = "HS256"
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY", "SUPER_SECRET_FALLBACK")
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
 
 pwd = CryptContext(schemes=["pbkdf2_sha256"])
 oauth2 = OAuth2PasswordBearer(tokenUrl="login")
