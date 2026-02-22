@@ -4,8 +4,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = MongoClient(os.getenv("MONGO_URI"))
+# Added timeout to prevent hanging if URI is wrong
+client = MongoClient(os.getenv("MONGO_URI"), serverSelectionTimeoutMS=5000)
 db = client["study_bot"]
+
+print("🚀 Study Bot Database Connection Initialized")
 
 users = db["users"]
 chat_collection = db["chats"]

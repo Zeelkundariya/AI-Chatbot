@@ -1,7 +1,6 @@
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
-from langchain_community.embeddings import HuggingFaceEmbeddings
 import os
 
 # Global variable to store loaded embeddings
@@ -11,6 +10,7 @@ def get_embeddings():
     """Lazy load embeddings to prevent startup timeout."""
     global _embeddings
     if _embeddings is None:
+        from langchain_community.embeddings import HuggingFaceEmbeddings
         _embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     return _embeddings
 
