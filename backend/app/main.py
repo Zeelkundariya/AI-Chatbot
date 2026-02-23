@@ -20,6 +20,14 @@ if dsn and dsn != "YOUR_SENTRY_DSN":
 
 app = FastAPI(title="Study Bot Elite API")
 
+@app.get("/")
+def root():
+    return {
+        "message": "🎓 Study Bot Elite API is Live!",
+        "status": "Ready for Learning",
+        "documentation": "/docs"
+    }
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
